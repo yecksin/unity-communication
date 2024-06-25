@@ -10,6 +10,30 @@
 <body>
   <app-root></app-root>
   <script src="unity/Build/unity.loader.js"></script>
+  <script>
+    function onUnityReady(message) {
+      console.log(message);
+      // Aquí puedes hacer lo que necesites en Angular cuando Unity esté listo
+      window.angularComponentRef.zone.run(() => {
+        window.angularComponentRef.component.onUnityReady(message);
+      });
+    }
 
+    function onUnityEvent(message) {
+      console.log(message);
+      // Aquí puedes manejar eventos desde Unity
+      window.angularComponentRef.zone.run(() => {
+        window.angularComponentRef.component.onUnityEvent(message);
+      });
+    }
+
+    function onCube(message) {
+      console.log(message);
+      // Aquí puedes manejar eventos desde Unity
+      window.angularComponentRef.zone.run(() => {
+        window.angularComponentRef.component.onCube(message);
+      });
+    }
+  </script>
 </body>
 </html>
